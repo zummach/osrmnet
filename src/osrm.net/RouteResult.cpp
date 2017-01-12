@@ -106,7 +106,10 @@ System::Collections::Generic::IEnumerable<osrmnet::RouteResult^>^ osrmnet::Route
 
 		// Build RouteResult^ from json object
 		RouteResult^ routeResult = gcnew RouteResult();
+	
+		const auto geometryContent = routeObj.values.at("geometry").get<osrm::json::String>().value;
 
+		routeResult->GeometryContent = msclr::interop::marshal_as<System::String^>(geometryContent);
 		routeResult->Distance = routeObj.values.at("distance").get<osrm::json::Number>().value;
 		routeResult->Duration = routeObj.values.at("duration").get<osrm::json::Number>().value;
 

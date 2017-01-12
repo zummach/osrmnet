@@ -17,6 +17,7 @@ namespace osrmnet
 		property double Distance;
 		property double Duration;
 		property GeometriesType Geometry;
+		property System::String^ GeometryContent;
 		property System::Collections::Generic::IList<RouteLeg^>^ Legs;
 
 		RouteResult()
